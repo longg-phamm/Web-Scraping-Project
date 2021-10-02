@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import csv
 import time
 
-PATH = "/Volumes/Transcend/Julian-Transcend/Web Scrapping Project/chromedriver"
+PATH = ""+os.getcwd()+"/chromedriver"
 
 
     
