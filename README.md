@@ -37,4 +37,4 @@ To search
 Example, searching for noodles on Walmart:
 `python3 webscrapping.py -w -u username -p 123456 -n Michael -s noodles`
 
-To discover the options without the need to consulting this page, run `python webscrapping.py --help`
+To discover the options without having to consult this page, run `python webscrapping.py --help`
