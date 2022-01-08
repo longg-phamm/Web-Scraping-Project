@@ -13,12 +13,12 @@ Program scrapes production information (name, price, url) from Amazon or Walmart
 
 ### Installing
 
-* install python3 if it has not been installed.
+* install python if it has not been installed.
 * run `pip install requirements.txt`
 
 ### Command-Line Interface
 
-* run `python3 webscrapping.py` followed by OPTIONS  
+* run `python webscrapping.py` followed by OPTIONS  
 
 ### OPTIONS
 
@@ -35,6 +35,6 @@ To search
 * `--search` or `-s` followed by the item to be searched
 
 Example, searching for noodles on Walmart:
-`python3 webscrapping.py -w -u username -p 123456 -n Michael -s noodles`
+`python webscrapping.py -w -u username -p 123456 -n Michael -s noodles`
 
 To discover the options without having to consult this page, run `python webscrapping.py --help`
