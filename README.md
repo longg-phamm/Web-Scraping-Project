@@ -11,6 +11,8 @@ Program scrapes production information (name, price, url) from Amazon or Walmart
 * selenium is needed to run program on web browser. 
 * beautifulsoup is needed to scrape product information
 
+* NOTE: the current version of ChromeDriver works with chrome browser version 97.0 Please check your chrome browser version and download the corresponding chromedriver at https://chromedriver.chromium.org/downloads
+
 ### Installing
 
 * install python if it has not been installed.
@@ -38,3 +40,7 @@ Example, searching for noodles on Walmart:
 `python webscrapping.py -w -u username -p 123456 -n Michael -s noodles`
 
 To discover the options without having to consult this page, run `python webscrapping.py --help`
+
+
+## UPDATE January 2022
+* Walmart updated their capcha, might take sometime to rewrite the walmart API to by pass their new captcha test
