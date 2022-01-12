@@ -11,7 +11,7 @@ Program scrapes production information (name, price, url) from Amazon or Walmart
 * selenium is needed to run program on web browser. 
 * beautifulsoup is needed to scrape product information
 
-* NOTE: the current version of ChromeDriver works with chrome browser version 97.0 Please check your chrome browser version and download the corresponding chromedriver at https://chromedriver.chromium.org/downloads
+* NOTE: the current version of ChromeDriver works with chrome browser version 97.0 Please check your chrome browser version and download the corresponding ChromeDriver at https://chromedriver.chromium.org/downloads
 
 ### Installing
 
