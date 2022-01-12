@@ -3,22 +3,29 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
+import os
 import csv
 import time
 
-PATH = ""+os.getcwd()+"/chromedriver"
+#PATH = os.getcwd()+"/chromedriver"
 
 
     
 def search (searched_item, driver):
-    
+
+    """
+    Function to search products
+    """
     search = driver.find_element_by_id("twotabsearchtextbox")
     search.send_keys(searched_item)
     search.send_keys(Keys.RETURN)
     
     return driver.page_source
 
-def scrap_data(list_of_items):
+def extract_data(list_of_items):
+    """
+    Function to extract data from product
+    """
     
     all_data = []
     for item in list_of_items:
@@ -50,7 +57,10 @@ def scrap_data(list_of_items):
         
     return all_data
 
-def get_items(page_source):
+def scrape_items(page_source):
+    """
+    Function to scrape product (product tags) from the site
+    """
     
     soup = BeautifulSoup(page_source, 'lxml')
     
@@ -58,10 +68,18 @@ def get_items(page_source):
     
     return items
     
-    
+
+
 def store_data(list_of_items):
-    
-    with open ("amazon-itemsp-database.csv","a") as f:
+    """
+    Function to store data to folder Data. It will create folder Data if has not created
+    """
+    try:
+       os.mkdir("./Data")
+    except OSError as e:
+       print("Directory exists")
+       
+    with open ("./Data/" + "amazon-itemsp-database.csv","a") as f:  #https://stackoverflow.com/questions/54944524/how-to-write-csv-file-into-specific-folder
         fields = ["title", "price", "url"]
         
         writer = csv.DictWriter(f, fieldnames=fields)

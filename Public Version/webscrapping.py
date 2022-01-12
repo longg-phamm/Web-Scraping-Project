@@ -16,6 +16,9 @@ import os
 PATH = ""+os.getcwd()+"/chromedriver"
 
 def run_browser(url):
+    """
+    Function to run URL
+    """
 
     driver = webdriver.Chrome(PATH)
     driver.get(url)
@@ -59,9 +62,9 @@ if __name__ == '__main__':
             if ( login_status[0] == 0 ):
                 html = wmt.search(args.search, driver)
                 
-                items = wmt.get_items(html)
+                items = wmt.scrape_items(html)
 
-                alldata = wmt.scrap_data(items)
+                alldata = wmt.extract_data(items)
 
                 result = wmt.store_data(alldata, args.name)
 
@@ -80,9 +83,9 @@ if __name__ == '__main__':
         
         html = amz.search(args.search, driver)
 
-        items = amz.get_items(html)
+        items = amz.scrape_items(html)
 
-        alldata = amz.scrap_data(items)
+        alldata = amz.extract_data(items)
 
         result = amz.store_data(alldata)
 

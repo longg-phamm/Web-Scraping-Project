@@ -10,10 +10,12 @@ import csv
 import time
 
 
-PATH = ""+os.getcwd()+"/chromedriver"
+#PATH = ""+os.getcwd()+"/chromedriver"
     
 def search (searched_item, driver):
-
+    """
+    Function to search for product
+    """
     pass_capcha(driver)
 
     search = driver.find_element_by_id("global-search-input")
@@ -28,7 +30,10 @@ def search (searched_item, driver):
 
     return driver.page_source
 
-def scrap_data(list_of_items):
+def extract_data(list_of_items):
+    """
+    Function to extract data from product
+    """
     
     all_data = []
     for item in list_of_items:
@@ -79,8 +84,10 @@ def scrap_data(list_of_items):
         
     return all_data
 
-def get_items(page_source):
-    
+def scrape_items(page_source):
+    """
+    Function to scrape products from the site
+    """
     soup = BeautifulSoup(page_source, 'lxml')
     
     items = soup.find_all('div' , {'data-id': True, 'class' : 'search-result-gridview-item-wrapper'})
@@ -89,8 +96,15 @@ def get_items(page_source):
     
     
 def store_data(list_of_items, username):
-    
-    with open ("walmart-items-database.csv","a") as f:
+    """
+    Function to store data
+    """
+    try:
+        os.mkdir("./Data")
+    except OSError as e:
+        print("Directory exists")
+          
+    with open ("./Data/"+"walmart-items-database.csv","a") as f:
         fields = ["title", "1st price", "2nd price" ,"Price range display", "url"]
         
         writing = csv.writer(f)
@@ -103,6 +117,9 @@ def store_data(list_of_items, username):
     return 0
             
 def login (user,password,driver):
+    """
+    Function to login into walmart
+    """
 
     Account = driver.find_element_by_id("hf-account-flyout")
     Account.click()
@@ -138,6 +155,9 @@ def login (user,password,driver):
     
     
 def pass_capcha (driver):
+    """
+    Function to by-pass the captcha test
+    """
         
     status = 0
     
