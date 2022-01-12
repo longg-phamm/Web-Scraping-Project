@@ -43,4 +43,4 @@ To discover the options without having to consult this page, run `python webscra
 
 
 ## UPDATE January 2022
-* Walmart updated their capcha, might take sometime to rewrite the walmart API to by pass their new captcha test
+* Walmart updated their capcha test and bot detection, might take sometime to rewrite the walmart API to by pass their new captcha test. Next plan is to allow the option of scrapping product information off Walmart WITHOUT login
